@@ -14,18 +14,40 @@ var spotify = new Spotify(keys.spotify);
 var moment = require("moment");
 
 // variables from command line
-var one = process.argv[2];
-var two = process.argv[3];
+var action = process.argv[2];
+var entry = process.argv[3];
 
-// access spoftify via keys.js
+// functions
 
+function spotifyThis(songEntered) {
 
- 
- // copied from npmjs.com
-spotify.search({ type: 'track', query: 'All the Small Things' }, function(err, data) {
-  if (err) {
-    return console.log('Error occurred: ' + err);
-  }
- 
-console.log(data); 
-});
+    // if no song is entered, defaults to Ace of Base "The Sign" 
+    if (songEntered === undefined || null) {
+        songEntered = "The Sign";
+    }
+
+    spotify.search({ type: 'track', query: songEntered }, function(err, data) {
+        if (err) {
+          return console.log('Error occurred: ' + err);
+        }
+        
+        else {
+            for (i = 0; i < data.tracks.items.length && i < 5; i++) {
+                var musicSearch = data.tracks.items[i];
+                console.log("========================");
+                // artist
+                console.log("Artist: " + musicSearch.artists[0].name +
+                // song name
+                "\nSong Name: " + musicSearch.name +
+                // link to preview song
+                "\nLink to Song: " + musicSearch.preview_url +
+                // album that the song is from
+                "\nAlbum Name: " + musicSearch.album.name +
+                "\n========================");
+                
+            }
+        };
+
+    });
+}
+spotifyThis();
