@@ -51,7 +51,8 @@ function spotifyThis(songEntered) {
 
     });
 }
-spotifyThis();
+// test spotify function, works!
+// spotifyThis();
 
 // omdb
 function omdbThis(movieEntered) {
@@ -95,4 +96,15 @@ function omdbThis(movieEntered) {
         };
     });
 }
-omdbThis();
+// testing omdb function, works!
+// omdbThis();
+
+// switch commands for functions
+switch (action) {
+    case "spotify-this-song":
+        spotifyThis();
+        break;
+
+    
+}
+// var ask = function (commands, funData)
