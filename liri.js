@@ -2,8 +2,11 @@
 require("dotenv").config();
 
 // import keys.js
-var keys = require("./keys");
+var keys = require("./keys.js");
 
 // fs
 var fa = require("fs");
+
+// access spoftify via keys.js
+var spotify = new Spotify(keys.spotify);
 
