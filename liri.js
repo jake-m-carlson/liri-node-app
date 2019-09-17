@@ -1,17 +1,23 @@
-// included in instructions, require dotenv to prevent passwords and keys from being displayed
+// basic requirements
 require("dotenv").config();
+var request = require("request");
+var fs = require("fs");
 
 // import keys.js
 var keys = require("./keys.js");
 
-// fs
-var fa = require("fs");
-
 // spotify 
 var Spotify = require('node-spotify-api');
+var spotify = new Spotify(keys.spotify);
+
+// moments 
+var moment = require("moment");
+
+// variables from command line
+var one = process.argv[2];
+var two = process.argv[3];
 
 // access spoftify via keys.js
-var spotify = new Spotify(keys.spotify);
 
 
  
