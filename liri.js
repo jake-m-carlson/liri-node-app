@@ -99,6 +99,33 @@ function omdbThis(movieEntered) {
 // testing omdb function, works!
 // omdbThis();
 
+// do what it says txt
+function doWhatItSays () {
+    fs.readFile("random.txt", "utf8", function (err, data) {
+        
+        // split txt into two
+        var dataArray = data.split(",");
+        var option = (dataArray[0]);
+        var parameter = (dataArray[1]);
+        console.log(option, parameter);
+
+        if (err) {
+            console.log(error);
+        } 
+        else if (option == "movie-this") {
+            movieEntered = parameter;
+            omdbThis()
+        }
+        else if (option == "spotify-this-song") {
+            songEntered = parameter;
+            spotifyThis()
+        }
+        
+    });
+}
+// test do what it says, works!
+// doWhatItSays();
+
 // switch commands for functions
 switch (action) {
     case "spotify-this-song":
