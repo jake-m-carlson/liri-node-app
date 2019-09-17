@@ -105,6 +105,8 @@ switch (action) {
         spotifyThis();
         break;
 
-    
+    case "movie-this":
+        omdbThis();
+        break;
 }
 // var ask = function (commands, funData)
