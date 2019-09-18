@@ -12,6 +12,7 @@ var spotify = new Spotify(keys.spotify);
 
 // moments 
 var moment = require("moment");
+moment().format();
 
 // variables from command line
 var action = process.argv[2];
@@ -127,13 +128,24 @@ function doWhatItSays () {
 // doWhatItSays();
 
 // switch commands for functions
-switch (action) {
-    case "spotify-this-song":
-        spotifyThis();
-        break;
+var ask = function(commands, inputData) {
+    switch (commands) {
+        case "spotify-this-song":
+            spotifyThis(inputData);
+            break;
+    
+        case "movie-this":
+            omdbThis(inputData);
+            break;
+    
+        case "do-what-it-says":
+            doWhatItSays();
+            break;
+        default:
+            console.log("Please try again, invalid entry.");
+    }
+};
 
-    case "movie-this":
-        omdbThis();
-        break;
-}
-// var ask = function (commands, funData)
+
+
+ask (action, entry);
